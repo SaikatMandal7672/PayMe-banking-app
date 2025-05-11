@@ -57,10 +57,10 @@ const SignUp = () => {
     <div className="flex justify-center items-center min-h-screen bg-violet-400 ">
       <div className="w-full h-108 max-w-md p-8 space-y-8 bg-white rounded-lg flex flex-col items-center justify-center  shadow-md gap-y-8 ">
         <div className="text-center ">
-          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl">
+          <h1 className="text-4xl font-bold tracking-tight lg:text-5xl h-14">
             SignUp to PayMe
           </h1>
-          <p className="mb-4 text-violet-800 text-[16px]">
+          <p className="mb-4 text-violet-800 text-[16px] h-5">
             Start ur seamless payments journey
           </p>
         </div>
@@ -88,7 +88,7 @@ const SignUp = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <Input type="password" {...field} name="password" />
-                  <p className="bg-violet-100 rounded h-6  text-violet-400 text-sm text-center">
+                  <p className="bg-green-100 rounded h-6  text-green-500 text-sm text-center">
                     Your password must be at least 6 characters long
                   </p>
                   <FormMessage />

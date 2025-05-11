@@ -1,5 +1,5 @@
 {
-  "name": "web",
+  "name": "users-app",
   "version": "0.1.0",
   "type": "module",
   "private": true,
@@ -13,6 +13,7 @@
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-label": "^2.1.6",
+    "@radix-ui/react-menubar": "^1.1.14",
     "@radix-ui/react-slot": "^1.2.2",
     "@repo/database": "*",
     "@repo/ui": "*",
@@ -21,6 +22,7 @@
     "bcrypt-ts": "^7.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "framer-motion": "^12.10.5",
     "lucide-react": "^0.509.0",
     "next": "^15.3.0",
     "next-auth": "^4.24.11",

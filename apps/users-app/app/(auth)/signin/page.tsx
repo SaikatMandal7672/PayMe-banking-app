@@ -67,16 +67,16 @@ const SignIn = () => {
         }
     }
     return (
-        <div className="min-h-screen bg-violet-300 flex justify-center items-center p-10">
+        <div className="min-h-screen bg-violet-300 flex justify-center items-center p-4">
             <div className="w-full h-96 max-w-md p-8 flex flex-col items-center justify-center gap-y-8 bg-white rounded-lg shadow-md">
                 <div className="text-center ">
-                    <h1 className="text-4xl font-bold tracking-tight lg:text-5xl mb-10 text-neutral-950 ">
+                    <h1 className="text-4xl font-bold tracking-tight lg:text-5xl  text-neutral-950 ">
                         PayMe
                     </h1>
-                    <p className="mb-4 text-[16px] text-[#013f9e]">SignIn to your Account</p>
+                    <p className="text-[16px] text-[#013f9e]">SignIn to your Account</p>
                 </div>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-y-4 md:w-full w-xs  max-w-sm px-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col gap-y-4 w-full px-4">
                         <FormField
                             name="phone"
                             control={form.control}
@@ -112,10 +112,10 @@ const SignIn = () => {
                         </Button>
                     </form>
                 </Form>
-                <div className="text-center mt-4">
+                <div className="text-center mt-4 w-full ">
                     <p>
-                        Don&apos;t have an account?{' '}
-                        <Link href="/signup" className="text-blue-400 hover:text-blue-800">
+                        Don&apos;t have an account?
+                        <Link href="/signup" className="text-blue-400 underline decoration-wavy decoration-1 hover:text-blue-800 ml-1">
                             Sign up
                         </Link>
                     </p>
