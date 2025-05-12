@@ -12,12 +12,24 @@
   .imgLight {
     display: none;
   }
+
   .imgDark {
     display: unset;
   }
 }
 
 @theme inline {
+  --color-magnolia-50: #f5f3ff;
+  --color-magnolia-100: #ece9fe;
+  --color-magnolia-200: #ddd6fe;
+  --color-magnolia-300: #c1b5fd;
+  --color-magnolia-400: #9e8bfa;
+  --color-magnolia-500: #765cf6;
+  --color-magnolia-600: #583aed;
+  --color-magnolia-700: #4628d9;
+  --color-magnolia-800: #3a21b6;
+  --color-magnolia-900: #311d95;
+  --color-magnolia-950: #1e1065;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -88,6 +100,9 @@
   --sidebar-ring: oklch(0.708 0 0);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+
+
+
 }
 
 .dark {
@@ -128,6 +143,7 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }

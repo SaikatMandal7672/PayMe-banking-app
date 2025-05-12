@@ -1,4 +1,9 @@
 {
-    "workbench.tree.indent": 20
+    "workbench.tree.indent": 20,
+    "editor.suggest.enabled": true,
+    "editor.suggestSelection": "first",
+    "editor.tabCompletion": "off",
+    "editor.suggest.showInlineCompletions": false,
+    "editor.inlineSuggest.enabled": false
 }
     

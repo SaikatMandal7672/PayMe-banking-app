@@ -10,7 +10,7 @@ const Navbar = () => {
   const { data: session, status } = useSession();
 
   return (
-    <div className="w-full px-4 py-2 flex justify-between items-center bg-white shadow-sm">
+    <div className="w-full px-4 py-2 flex justify-between items-center bg-white shadow-sm fixed">
       <p className="text-2xl font-semibold rounded rounded-bl-2xl">PayMe</p>
 
       {status === "loading" ? (
