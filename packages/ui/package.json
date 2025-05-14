@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./*": "./src/*.tsx"
+    "./*": "./src/*.tsx",
+    "./components/*": "./components/ui/*.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
@@ -14,14 +15,17 @@
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@turbo/gen": "^2.5.0",
-    "@types/node": "^22.15.3",
     "@types/react": "19.1.0",
     "@types/react-dom": "19.1.1",
     "eslint": "^9.26.0",
     "typescript": "5.8.2"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.2",
+    "lucide-react": "^0.510.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
-  }
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

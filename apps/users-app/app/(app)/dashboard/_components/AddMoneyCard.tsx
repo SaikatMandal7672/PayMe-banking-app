@@ -26,7 +26,7 @@ export const AddMoneyCard = () => {
     SUPPORTED_BANKS[0]?.redirectUrl
   );
   return (
-    <Card className="">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle className="text-xl">Add Money</CardTitle>
         <div className="h-[1px] bg-muted-foreground/50 w-full"></div>

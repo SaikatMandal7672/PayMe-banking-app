@@ -27,6 +27,9 @@
     },
     "db:deploy": {
       "cache": false
+    },
+    "dg:seed":{
+      "cache": false
   }
   }
 }

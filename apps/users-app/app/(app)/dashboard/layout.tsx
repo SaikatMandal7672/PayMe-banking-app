@@ -9,11 +9,10 @@ export default async function RootLayout({ children }: RootLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col bg-purple-100">
       <Navbar />
-      <div className="mt-14">
+      <div className="mt-14 flex">
         <Sidebar />
-        <div className="w-[85vw] ml-[15vw]">
-          {children}
-        </div>
+        {children}
+
       </div>
     </div>
   );

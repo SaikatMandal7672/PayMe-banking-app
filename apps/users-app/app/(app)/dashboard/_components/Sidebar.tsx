@@ -1,23 +1,95 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef, useState } from "react";
 import { SidebarItem } from "./SidebarItem";
+import { cn } from "@/lib/utils";
+import { useMediaQuery } from "usehooks-ts";
+import { ChevronLeft, Menu } from "lucide-react";
 
 const Sidebar = () => {
+  const isMobile = useMediaQuery("(max-width:768px)");
+  const sidebarRef = useRef<HTMLDivElement>(null);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const handleExpand = () => {
+    console.log("hello");
+    if (sidebarRef.current) {
+      setIsExpanded(true);
+      sidebarRef.current.style.width = isMobile ? " 100%" : "0";
+      sidebarRef.current.style.height = isMobile ? " 100%" : "0";
+    }
+  };
+
+  const handleCollapse = () => {
+    setIsExpanded(false);
+    console.log(isExpanded);
+    if (sidebarRef.current) {
+      sidebarRef.current.style.width = isMobile ? "0" : "0";
+      sidebarRef.current.style.height = isMobile ? "0" : "0";
+    }
+  };
+  const resetWidth = () => {
+    if (sidebarRef.current) {
+      sidebarRef.current.style.width = isMobile ? "100%" : "192px";
+    }
+  };
+  useEffect(() => {
+    if (isMobile) {
+      handleCollapse();
+    } else {
+      resetWidth();
+    }
+  }, [isMobile]);
+  console.log(isMobile);
   return (
-    <div className="w-[15vw] pt-5 border border-r-2 border-r-muted-foreground/15 min-h-screen fixed">
-      <div>
-        <SidebarItem href={"/dashboard"} icon={<HomeIcon />} title="Home" />
-        <SidebarItem
-          href={"/dashboard/transfer"}
-          icon={<TransferIcon />}
-          title="Transfer"
-        />
-        <SidebarItem
-          href={"/dashboard/transaction"}
-          icon={<TransactionsIcon />}
-          title="Transactions"
-        />
+    <>
+      <div
+        onClick={handleCollapse}
+        ref={sidebarRef}
+        className={cn(
+          "w-48 pt-5 border border-r-2 border-r-muted-foreground/15  min-h-screen fixed transition-all duration-300 linear z-[999999] bg-purple-200/70",
+          isMobile && "w-0 absolute"
+        )}
+      >
+        <div
+          className={cn(
+            "absolute right-0 mr-4 rounded-sm text-muted-foreground bg-purple-300 hover:bg-purple-200 hover:text-purple-950 cursor-pointer",
+            isExpanded ? "block" : "hidden"
+          )}
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </div>
+        <div>
+          <SidebarItem
+            href={"/dashboard"}
+            icon={<HomeIcon />}
+            title="Home"
+            isExpanded={isExpanded}
+          />
+          <SidebarItem
+            isExpanded={isExpanded}
+            href={"/dashboard/transfer"}
+            icon={<TransferIcon />}
+            title="Transfer"
+          />
+          <SidebarItem
+            isExpanded={isExpanded}
+            href={"/dashboard/transaction"}
+            icon={<TransactionsIcon />}
+            title="Transactions"
+          />
+        </div>
       </div>
-    </div>
+      <div
+        role="button"
+        onClick={handleExpand}
+        className={cn(
+          "h-4 w-4 absolute right-0 mr-6",
+          isMobile ? "block" : "hidden"
+        )}
+      >
+        <Menu />
+      </div>
+    </>
   );
 };
 function HomeIcon() {
