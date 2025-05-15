@@ -52,7 +52,7 @@ const Sidebar = () => {
       >
         <div
           className={cn(
-            "absolute right-0 mr-4 rounded-sm text-muted-foreground bg-purple-300 hover:bg-purple-200 hover:text-purple-950 cursor-pointer",
+            "fixed right-0 mr-4 rounded-sm text-muted-foreground bg-purple-300 hover:bg-purple-200 hover:text-purple-950 cursor-pointer",
             isExpanded ? "block" : "hidden"
           )}
         >
@@ -76,6 +76,12 @@ const Sidebar = () => {
             href={"/dashboard/transaction"}
             icon={<TransactionsIcon />}
             title="Transactions"
+          />
+          <SidebarItem
+            isExpanded={isExpanded}
+            href={"/dashboard/p2p"}
+            icon={<SendIcon />}
+            title="P2P Transfer"
           />
         </div>
       </div>
@@ -107,6 +113,18 @@ function HomeIcon() {
         strokeLinejoin="round"
         d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
       />
+    </svg>
+  );
+}
+function SendIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className="size-6"
+    >
+      <path d="M3.478 2.404a.75.75 0 0 0-.926.941l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.404Z" />
     </svg>
   );
 }

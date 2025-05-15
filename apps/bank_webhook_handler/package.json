@@ -2,18 +2,22 @@
   "name": "bank_webhook_handler",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@repo/database": "*",
     "@types/express": "^5.0.1",
     "esbuild": "^0.25.4",
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
   }
 }
+
