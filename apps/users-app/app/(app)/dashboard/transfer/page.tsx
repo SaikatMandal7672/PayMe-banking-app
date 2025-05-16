@@ -10,9 +10,8 @@ import { Suspense } from "react";
 import { connection } from "next/server";
 
 async function getUserData() {
- 
   const session = await getServerSession(authOptions);
-  //@ts-ignore
+  //@ts-expect-error
   const userId = session?.user?.id;
   const [balance, transactions] = await Promise.all([
     prisma.balance.findFirst({
@@ -20,9 +19,9 @@ async function getUserData() {
     }),
     prisma.onRampTransaction.findMany({
       where: { userId },
-      orderBy: { startTime: 'desc' },
-      take: 4
-    })
+      orderBy: { startTime: "desc" },
+      take: 4,
+    }),
   ]);
 
   return {
@@ -35,13 +34,13 @@ async function getUserData() {
       amount: t.amount,
       status: t.status,
       provider: t.provider,
-    }))
+    })),
   };
 }
 
 const Transfer = async () => {
   await connection();
-  
+
   // Get all data in parallel
   const { balance, transactions } = await getUserData();
 

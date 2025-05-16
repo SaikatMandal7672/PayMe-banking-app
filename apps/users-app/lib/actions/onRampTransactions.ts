@@ -7,16 +7,18 @@ import { revalidatePath } from "next/cache";
 
 export async function createOnRampTransaction(amount: number, provider: string) {
     const session = await getServerSession(authOptions);
-    //@ts-ignore
-    const userId = session?.user?.id;
+ 
     
+    //@ts-expect-error
+    const userId = session?.user?.id;
+
     if (!userId) {
         return {
             success: false,
             message: "User not logged in",
         }
     }
-    
+
     // const token = fetch("www.hdfcbank.com/getToken",amount , bankDetails)
     const token = Math.floor(Math.random() * 100000000).toString();
 
@@ -32,7 +34,7 @@ export async function createOnRampTransaction(amount: number, provider: string) 
     });
 
     revalidatePath('/dashboard');
-    
+
     return {
         success: true,
         message: "Transaction initiated"
