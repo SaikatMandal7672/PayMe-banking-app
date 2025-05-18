@@ -47,7 +47,7 @@ export const P2PCard = () => {
   };
 
   return (
-    <Card className="w-xl">
+    <Card className="lg:w-1/2 md:w-2/3 w-full">
       <CardHeader>
         <CardTitle className="text-xl">Send Money</CardTitle>
         <div className="h-[1px] bg-muted-foreground/50 w-full"></div>

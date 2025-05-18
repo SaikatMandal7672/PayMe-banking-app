@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -8,6 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CheckCheck, CircleX, Clock } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 interface Props {
@@ -20,12 +22,13 @@ interface Props {
 }
 
 let index = 0;
+
 const OnRampTransaction = ({ transactions }: Props) => {
   if (!transactions?.length) {
     return (
       <Card>
         <CardHeader className=" bg-amber-100">
-          <CardTitle>Recent Self Transactions</CardTitle>
+          <CardTitle>Recent Transactions</CardTitle>
           <CardDescription>Your recent payment activity</CardDescription>
         </CardHeader>
         <CardContent className="bg-pink-400">
@@ -37,7 +40,7 @@ const OnRampTransaction = ({ transactions }: Props) => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Recent Transactions</CardTitle>
+        <CardTitle>Recent Self Transactions</CardTitle>
         <CardDescription>Your recent payment activity</CardDescription>
       </CardHeader>
       <CardContent className="pb-2">
@@ -61,7 +64,7 @@ const OnRampTransaction = ({ transactions }: Props) => {
                   )}
                 </div>
                 <div className="text-slate-600 text-xs pl-5">
-                  {transaction.time.toString()}
+                  {transaction.time.toDateString()}
                 </div>
               </div>
               <div className="flex flex-col justify-center">
@@ -72,8 +75,11 @@ const OnRampTransaction = ({ transactions }: Props) => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button variant="outline" className="w-full">
-          View All Transactions
+        <Button variant="outline" className="w-full"
+
+        >
+          <Link href="/dashboard/transaction"> View All Transactions</Link>
+         
         </Button>
       </CardFooter>
     </Card>
