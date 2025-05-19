@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { ButrecieverN } from "@/components/ui/butrecieverN";
 import Link from "next/link";
 
 const SignUp = () => {
@@ -95,7 +95,7 @@ const SignUp = () => {
                 </FormItem>
               )}
             />
-            <Button
+            <ButrecieverN
               type="submit"
               className="w-full bg-violet-200 text-violet-700 hover:bg-violet-700 hover:text-violet-50 "
               disabled={isSubmitting}
@@ -108,16 +108,14 @@ const SignUp = () => {
               ) : (
                 "Sign Up"
               )}
-            </Button>
+            </ButrecieverN>
           </form>
         </Form>
         <div className="text-center mt-4">
           <p>
             Already a member?{" "}
-            <span className="text-blue-500 hover:text-blue-800 underline decoration-wavy"> 
-              <Link href="/signin" >
-                Sign in
-              </Link>
+            <span className="text-blue-500 hover:text-blue-800 underline decoration-wavy">
+              <Link href="/signin">Sign in</Link>
             </span>
           </p>
         </div>

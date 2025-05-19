@@ -41,7 +41,7 @@ const Sidebar = () => {
     if (sidebarRef.current) {
       sidebarRef.current.style.width = isMobile ? "0" : "192px";
       sidebarRef.current.style.height = isMobile ? "0" : "auto";
-      sidebarRef.current.style.position = isMobile ? "absolute" :"";
+      sidebarRef.current.style.position = isMobile ? "absolute" : "";
     }
   }, [isMobile]);
 
@@ -52,7 +52,7 @@ const Sidebar = () => {
         transition={{ duration: 0.3, ease: easeInOut }}
         ref={sidebarRef}
         className={cn(
-          "bg-magnolia-200 h-full relative w-48 hidden md:flex flex-col",
+          "bg-magnolia-200 top-0 bottom-0 mt-14 fixed w-48 hidden md:flex flex-col",
           isMobile ?? "absolute"
         )}
       >
@@ -98,7 +98,7 @@ const Sidebar = () => {
       </motion.div>
       {!isExpanded && isMobile && (
         <div
-          role="button"
+          role="butrecieverN"
           onClick={handleExpand}
           className={cn(
             "p-1 absolute right-0 mr-6 mt-2 bg-purple-300 hover:bg-purple-700 hover:text-purple-200 rounded cursor-pointer"

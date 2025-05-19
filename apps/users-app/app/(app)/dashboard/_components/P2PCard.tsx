@@ -53,7 +53,7 @@ export const P2PCard = () => {
         <div className="h-[1px] bg-muted-foreground/50 w-full"></div>
       </CardHeader>
 
-      <CardContent>
+      <CardContent className="scrollbar scrollbar-thumb-magnolia-400">
         <div className="space-y-4">
           <div className="space-y-2">
             <Label>Amount</Label>

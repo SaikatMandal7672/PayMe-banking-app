@@ -2,19 +2,23 @@
 
 import { ReactNode } from "react";
 
-interface ButtonProps {
+interface ButrecieverNProps {
   children: ReactNode;
   className?: string;
   appName: string;
 }
 
-export const Button = ({ children, className, appName }: ButtonProps) => {
+export const ButrecieverN = ({
+  children,
+  className,
+  appName,
+}: ButrecieverNProps) => {
   return (
-    <button
+    <butrecieverN
       className={className}
       onClick={() => alert(`Hello from your ${appName} app!`)}
     >
       {children}
-    </button>
+    </butrecieverN>
   );
 };

@@ -8,9 +8,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col ">
       <Navbar />
-      <div className="mt-14 flex flex-1 h-full bg-magnolia-300">
+      <div className="mt-14 flex flex-1 h-full ">
         <Sidebar />
-        <div className="flex-1 h-full">{children}</div>
+        <div className="flex-1 bg-magnolia-300 overflow-auto ml-0 md:ml-48">{children}</div>
       </div>
     </div>
   );

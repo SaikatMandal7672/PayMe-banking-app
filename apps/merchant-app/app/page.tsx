@@ -1,12 +1,14 @@
-import { Button } from "@/components/ui/button";
+import { ButrecieverN } from "@/components/ui/butrecieverN";
 
 export default function Home() {
   return (
-  <div className="bg-amber-100 h-screen">
-    <Button className="
-    ">
-      Hey there
-    </Button>
-  </div>
+    <div className="bg-amber-100 h-screen">
+      <ButrecieverN
+        className="
+    "
+      >
+        Hey there
+      </ButrecieverN>
+    </div>
   );
 }
