@@ -49,7 +49,7 @@ const Transfer = async () => {
         "min-h-screen  px-10 py-5 transition-all duration-300 ease-in-out"
       )}
     >
-      <h1 className="text-4xl font-bold text-magnolia-900 mb-8">Transfer</h1>
+      <h1 className="text-5xl font-semibold text-magnolia-900 mb-4">Transfer</h1>
       <div className="grid md:grid-cols-2 grid-cols-1 mb-4 gap-4 md:gap-8">
         <AddMoneyCard />
         <BalanceCard amount={balance.amount} locked={balance.locked} />

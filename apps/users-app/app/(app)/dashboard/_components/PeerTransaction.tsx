@@ -133,15 +133,14 @@ const PeerTransaction = ({
                             <>
                               Sent to{" "}
                               <span className="font-semibold">
-                                {t.toUser !== userId
-                                  ? t.toUser
-                                  : t.recieverNumber}
+                                {t.recieverName? t.recieverName: t.recieverNumber}
                               </span>
                             </>
                           ) : (
                             <>
                               Received from{" "}
-                              <span className="font-semibold">{}</span>
+                              <span className="font-semibold">{
+                                t.senderName? t.senderName :t.senderNumber}</span>
                             </>
                           )}
                         </p>

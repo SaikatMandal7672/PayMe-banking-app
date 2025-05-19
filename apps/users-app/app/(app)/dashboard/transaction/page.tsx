@@ -60,11 +60,11 @@ const getTransactionData = async () => {
 const Transaction = async () => {
   const { p2pTransactions, onRampTransaction, userId } =
     await getTransactionData();
-  console.log(onRampTransaction);
+  // console.log(onRampTransaction);
 
   return (
     <div className="p-5	flex flex-col flex-1 h-full overflow-auto">
-      this is transactions
+      <h1 className="text-5xl font-semibold text-magnolia-900 mb-4">Transaction</h1>
       <div className="grid md:grid-cols-2 grid-cols-1 gap-2">
         <PeerTransaction transactions={p2pTransactions} userId={userId} />
 
