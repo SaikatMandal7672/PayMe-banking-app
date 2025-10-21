@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { createP2PTransactions } from "@/lib/actions/createP2PTransaction";
 import { toast } from "sonner";
 import { SendHorizontalIcon } from "lucide-react";
+import { validateP2PTransfer, parseAmountToPaise } from "@/lib/utils/p2p-validation";
 
 export const P2PForm = () => {
   const [amount, setAmount] = useState("");
@@ -14,18 +15,21 @@ export const P2PForm = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSend = async () => {
-    if (!amount || parseInt(amount) <= 0) {
-      toast.error("Enter a valid amount");
-      return;
-    }
-    if (!number || number.trim().length === 0) {
-      toast.error("Enter a valid phone number");
+    const amountInPaise = parseAmountToPaise(amount);
+    const validation = validateP2PTransfer({
+      receiverNumber: number,
+      amount: amountInPaise,
+    });
+
+    if (!validation.isValid) {
+      validation.errors.forEach((error) => toast.error(error));
       return;
     }
 
     try {
       setIsLoading(true);
-      const result = await createP2PTransactions(number, parseInt(amount) * 100);
+      const result = await createP2PTransactions(number, amountInPaise);
+
       if (result?.success) {
         toast.success(result.message);
         setAmount("");

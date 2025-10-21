@@ -14,18 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { TransactionFilters } from "./TransactionFilters";
-
-interface P2PTransaction {
-  id: string;
-  amount: number;
-  time: Date;
-  senderName: string;
-  senderNumber: string;
-  recieverName: string;
-  recieverNumber: string;
-  fromUser: string;
-  toUser: string;
-}
+import type { P2PTransaction } from "@/lib/types/p2p";
 
 interface BankTransaction {
   time: Date;

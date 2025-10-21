@@ -1,11 +1,19 @@
 FROM node:24-alpine3.20
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY . . 
+COPY package.json yarn.lock turbo.json tsconfig.json ./
 
+COPY apps ./apps
+COPY packages ./packages
+
+# Install dependencies
 RUN yarn install
-RUN yarn turbo build
-RUN yarn turbo db:generate
-RUN yarn turbo db:migrate
 
+# Generate Prisma client
+RUN yarn run generate-prisma
+
+# Build only the user-app
+RUN yarn run build --filter=user-app
+
+CMD ["yarn", "run", "start-user-app"]

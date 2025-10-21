@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/form";
 import { Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { ButrecieverN } from "@/components/ui/butrecieverN";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const SignUp = () => {
@@ -95,7 +95,7 @@ const SignUp = () => {
                 </FormItem>
               )}
             />
-            <ButrecieverN
+            <Button
               type="submit"
               className="w-full bg-violet-200 text-violet-700 hover:bg-violet-700 hover:text-violet-50 "
               disabled={isSubmitting}
@@ -108,7 +108,7 @@ const SignUp = () => {
               ) : (
                 "Sign Up"
               )}
-            </ButrecieverN>
+            </Button>
           </form>
         </Form>
         <div className="text-center mt-4">

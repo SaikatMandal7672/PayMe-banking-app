@@ -10,19 +10,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, ArrowDownLeft } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-interface P2PTransaction {
-  id: string;
-  amount: number;
-  time: Date;
-  fromUser: string;
-  toUser: string;
-  fromName: string | null;
-  toName: string | null;
-}
+import type { RecentP2PTransaction } from "@/lib/types/p2p";
 
 interface RecentP2PTransactionsProps {
-  transactions: P2PTransaction[];
+  transactions: RecentP2PTransaction[];
   userId: string;
 }
 

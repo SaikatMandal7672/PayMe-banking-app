@@ -1,6 +1,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@repo/database";
+import type { RecentP2PTransaction } from "@/lib/types/p2p";
+
 
 export async function getDashboardData() {
   const session = await getServerSession(authOptions);
@@ -44,7 +46,7 @@ export async function getDashboardData() {
       amount: balance?.amount || 0,
       locked: balance?.locked || 0,
     },
-    recentP2P: recentP2P.map((t) => ({
+    recentP2P: recentP2P.map((t: typeof recentP2P[0]) => ({
       id: t.id,
       amount: t.amount,
       time: t.timestamp,
@@ -52,8 +54,8 @@ export async function getDashboardData() {
       toUser: t.toUserId,
       fromName: t.fromUser.name,
       toName: t.toUser.name,
-    })),
-    recentOnRamp: recentOnRamp.map((t) => ({
+    })) as RecentP2PTransaction[],
+    recentOnRamp: recentOnRamp.map((t:typeof recentP2P[0]) => ({
       amount: t.amount,
       time: t.startTime,
       status: t.status,
