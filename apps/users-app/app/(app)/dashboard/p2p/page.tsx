@@ -1,17 +1,14 @@
 'use client'
 import React from 'react'
-import { P2PCard } from '../_components/P2PCard'
-import { useMediaQuery } from 'usehooks-ts'
-import { cn } from '@/lib/utils'
+import { P2PForm } from '../_components/p2p'
+
 const P2PTransaction = () => {
-  const isMobile = useMediaQuery('(max-width: 768px')
   return (
-    <div className={cn(' px-10 py-5  bg ',
-    )}>
-        <h1 className="text-4xl font-bold text-magnolia-900 mb-8">Send Money to Peers</h1>
-        <div className=' w-full h-[80%] flex items-center justify-center'>
-            <P2PCard />
-            </div>
+    <div className="min-h-screen px-4 md:px-10 py-5 md:py-8">
+      <h1 className="text-2xl md:text-3xl font-semibold mb-8">Send Money</h1>
+      <div className="flex items-center justify-center">
+        <P2PForm />
+      </div>
     </div>
   )
 }

@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/form";
 import { Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { ButrecieverN } from "@/components/ui/butrecieverN";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { signInSchema } from "@/schemas/signInSchema";
 import { signIn } from "next-auth/react";
@@ -76,7 +76,7 @@ const SignIn = () => {
           <h1 className="text-4xl font-bold tracking-tight lg:text-5xl  text-neutral-950 ">
             PayMe
           </h1>
-          <p className="text-[16px] text-[#013f9e]">SignIn to your Account</p>
+          <p className="text-[16px] te xt-[#013f9e]">SignIn to your Account</p>
         </div>
         <Form {...form}>
           <form
@@ -106,7 +106,7 @@ const SignIn = () => {
                 </FormItem>
               )}
             />
-            <ButrecieverN
+            <Button
               type="submit"
               className="w-full bg-purple-200 text-purple-700 hover:bg-violet-700 hover:text-purple-50"
               disabled={isSubmitting}
@@ -119,7 +119,7 @@ const SignIn = () => {
               ) : (
                 "Sign In"
               )}
-            </ButrecieverN>
+            </Button>
           </form>
         </Form>
         <div className="text-center mt-4 w-full ">

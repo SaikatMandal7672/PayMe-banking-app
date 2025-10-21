@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "scripts": {
-   
-  },
+  "scripts": {},
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -17,7 +15,7 @@
     "express": "^5.1.0"
   },
   "devDependencies": {
+    "@types/minimatch": "^6.0.0",
     "typescript": "^5.0.0"
   }
 }
-

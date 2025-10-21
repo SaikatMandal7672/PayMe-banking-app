@@ -6,7 +6,6 @@ export async function POST(request: Request) {
 
 
     try {
-
         const { phone, password } = await request.json();
         const existingUser = await prisma.user.findFirst({
             where: {

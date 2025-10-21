@@ -1,12 +1,8 @@
 import React from "react";
-import { AddMoneyCard } from "../_components/AddMoneyCard";
-import BalanceCard from "../_components/BalanceCard";
-import OnRampTransaction from "../_components/OnRampTransaction";
-import { cn } from "@/lib/utils";
+import { AddMoneyForm, BalanceDisplay, RecentTransactions } from "../_components/transfer";
 import { prisma } from "@repo/database";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-// import { connection } from "next/server";
 
 async function getUserData() {
   const session = await getServerSession(authOptions);
@@ -19,7 +15,7 @@ async function getUserData() {
     prisma.onRampTransaction.findMany({
       where: { userId },
       orderBy: { startTime: "desc" },
-      take: 4,
+      take: 5,
     }),
   ]);
 
@@ -38,23 +34,16 @@ async function getUserData() {
 }
 
 const Transfer = async () => {
-  // await connection();
-
-  // Get all data in parallel
   const { balance, transactions } = await getUserData();
 
   return (
-    <div
-      className={cn(
-        "min-h-screen  px-10 py-5 transition-all duration-300 ease-in-out"
-      )}
-    >
-      <h1 className="text-5xl font-semibold text-magnolia-900 mb-4">Transfer</h1>
-      <div className="grid md:grid-cols-2 grid-cols-1 mb-4 gap-4 md:gap-8">
-        <AddMoneyCard />
-        <BalanceCard amount={balance.amount} locked={balance.locked} />
+    <div className="min-h-screen px-4 md:px-10 py-5 md:py-8">
+      <h1 className="text-2xl md:text-3xl font-semibold mb-8">Add Money</h1>
+      <div className="grid md:grid-cols-2 gap-6 mb-8">
+        <AddMoneyForm />
+        <BalanceDisplay amount={balance.amount} locked={balance.locked} />
       </div>
-      <OnRampTransaction transactions={transactions} />
+      <RecentTransactions transactions={transactions} />
     </div>
   );
 };
